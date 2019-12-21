@@ -1,7 +1,14 @@
+"""pyCommit
+"""
+__maintainer__ = 'Gary Frederick'
+__license__ = 'MIT'
+__version__ = '1.0.0'
 # built-in Python Modules
 import os
 import sys
 import time
+# local Python Modules
+import art
 # external Python Modules
 try:
     import requests
@@ -10,13 +17,25 @@ except ImportError as error:
     sys.stdout.write(error)
 
 
-class py_commit(object):
+class pyCommit(object):
     def __init__(self):
         self._username = os.getenv('username')
         self._password = os.getenv('pw')
         self._repo_name = 'commit'
 
     def instance(self, api):
+        pass
+
+    def commit(self):
+        pass
+
+    def status(self):
+        pass
+
+    def push(self):
+        pass
+
+    def remote(self):
         pass
 
 
