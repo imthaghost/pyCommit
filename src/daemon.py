@@ -15,9 +15,9 @@ References:
          http://www.erlenstar.demon.co.uk/unix/faq_toc.html
 """
 
-__author__ = "Gary Frederick"
-__version__ = "1.0"
-
+__maintainer__ = 'Gary Frederick'
+__license__ = 'MIT'
+__version__ = '1.0.0'
 # Standard Python modules.
 import os               # Miscellaneous OS interfaces.
 import sys              # System-specific parameters and functions.
