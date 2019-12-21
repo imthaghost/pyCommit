@@ -5,6 +5,9 @@ References:
    2) Unix Programming Frequently Asked Questions:
          http://www.erlenstar.demon.co.uk/unix/faq_toc.html
 """
+__maintainer__ = 'Gary Frederick'
+__license__ = 'MIT'
+__version__ = '1.0.0'
 
 # Standard Python modules.
 import os               # Miscellaneous OS interfaces.
