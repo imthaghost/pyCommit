@@ -10,6 +10,8 @@ autopep8 = "*"
 pyfiglet = "*"
 pygithub = "*"
 keyring = "*"
+requests = "*"
+flask = "*"
 
 [requires]
 python_version = "3.7"
