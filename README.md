@@ -1,53 +1,59 @@
-# pyCommit
+<h1 align="center">Welcome to pyCommit</h1>
+<img align="center" src="docs/media/icon.png" title="Icon"></a>
+<p>
+    <a href="https://www.npmjs.com/package/readme-md-generator">
+    <img alt="downloads" src="https://img.shields.io/github/contributors/imthaghost/ghostChat?color=green" target="_blank" />
 
-Go away on a trip or simply just a noob but your commit wall is life? Try out pyCommit it does absolutely nothing except provides the user a console to specify what days the daemon process should create commits for you. This will allow you to have a green wall year round!
+  </a> 
+  
+  <img alt="Version" src="https://img.shields.io/badge/version-1.0-blue.svg?cacheSeconds=2592000" />
+  <a href="#" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+  </a>
+   <a href="https://github.com/imthaghost/gitmoji-changelog">
+    <img src="https://img.shields.io/badge/changelog-gitmoji-brightgreen.svg" alt="gitmoji-changelog">
+  </a>
+  
+</p>
 
-## Prerequisites
+> Go away on a trip or simply just a noob but your commit wall is life? Try out pyCommit it does absolutely nothing except provides the user a console to specify what days the daemon process should create commits for you. This will allow you to have a green wall year round!
 
-What things you need to install the software
+### 💻 Prerequisites
+
+What things you need to run the software
 
 ```bash
-- Homebrew
-- Pipenv
 - Python 3.4+
+- Pipenv
+- Brew
 ```
 
-## Getting Started
+## 🚀 Getting Started
+
+### macOS Mojave 10.0+, Catalina 10.1+
 
 ```bash
 # clone the repo
-git clone https://github.com/imthaghost/pyCommit.git
-# start the virtual enviornment instance
-pipenv shell
-# install the dependant modules
-pipenv install
-# start pycommit
-python3 pycommit.py
+git clone https://github.com/imthaghost/pycommit
 ```
 
-## Built With
+## :white_check_mark: Todo
 
--   [Daemon](https://www.djangoproject.com/) - Daemon Process Library
+-   [x] Allow users to create a number of commits for the day
+-   [ ] Run program as a dameon on computer
+-   [ ] Create web application to allow users to not have to run code locally
 
-# Contribution Guidlines
+## :hammer: Built With
 
-We love your input! We want to make contributing to this project as easy and transparent as possible, whether it's:
+-   [pyGithub](https://github.com/PyGithub/PyGithub/) - Github Python API
 
--   Reporting a bug
--   Discussing the current state of the code
--   Submitting a fix
--   Proposing new features
--   Becoming a maintainer
+## 🤝 Contribution Guidlines
 
-### We Develop with Github
-
-We use github to host code, to track issues and feature requests, as well as accept pull requests.
-
-### We Use [Github Flow](https://guides.github.com/introduction/flow/index.html), So All Code Changes Happen Through Pull Requests
+### Use [Github Flow](https://guides.github.com/introduction/flow/index.html), So All Code Changes Happen Through Pull Requests
 
 Pull requests are the best way to propose changes to the codebase (we use [Github Flow](https://guides.github.com/introduction/flow/index.html)). We actively welcome your pull requests:
 
-1. Clone the repo and create your branch from `master`.
+1. Fork the repo and create your branch from `master`.
 2. If you've added code that should be tested, add tests.
 3. If you've changed APIs, update the documentation.
 4. Ensure the test suite passes.
@@ -60,39 +66,22 @@ In short, when you submit code changes, your submissions are understood to be un
 
 ### Report bugs using Github's [issues](https://github.com/briandk/transcriptase-atom/issues)
 
-We use GitHub issues to track public bugs. Report a bug by [opening a new issue](); it's that easy!
-
-### Write bug reports with detail, background, and sample code
-
-[This is an example](http://stackoverflow.com/q/12488905/180626) of a bug report I found, and I think it's not a bad model. Here's [another example from Craig Hockenberry](http://www.openradar.me/11905408), an app developer whom I greatly respect.
-
-**Great Bug Reports** tend to have:
-
--   A quick summary and/or background
--   Steps to reproduce
-    -   Be specific!
-    -   Give sample code if you can. [My stackoverflow question](http://stackoverflow.com/q/12488905/180626) includes sample code that _anyone_ with a base R setup can run to reproduce what I was seeing
--   What you expected would happen
--   What actually happens
--   Notes (possibly including why you think this might be happening, or stuff you tried that didn't work)
-
-People _love_ thorough bug reports. I'm not even kidding.
+Use GitHub issues to track public bugs. Report a bug by [opening a new issue](); it's that easy!
 
 ### Use a Consistent Coding Style
 
-[Facebook's Guidelines](https://github.com/facebook/draft-js/blob/a9316a723f9e918afde44dea68b5f9f39b7d9b00/CONTRIBUTING.md)
+-   PEP 8 style unification
+-   2 spaces for indentation rather than tabs (or tabs that convert to spaces)
+-   You can try running `pipenv install autopep8 --dev` for style unification
 
--   2 spaces for indentation rather than tabs or tabs (2 space indentation)
--   You can run `pipenv install autopep8 --dev` for style unification
-
-## License
+## 📝 License
 
 By contributing, you agree that your contributions will be licensed under its MIT License.
 
-## References
+## Contributors
 
-This document was adapted from the open-source contribution guidelines for [Facebook's Draft](https://github.com/facebook/draft-js/blob/a9316a723f9e918afde44dea68b5f9f39b7d9b00/CONTRIBUTING.md)
-
-## Authors
-
--   **Gary Frederick** - _Initial Work_ - [imthaghost](https://github.com/imthaghost)
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/imthaghost"><img src="https://avatars3.githubusercontent.com/u/46610773?s=460&v=4" width="75px;" alt="Gary Frederick"/><br /><sub><b>Gary Frederick</b></sub></a><br /><a href="https://github.com/imthaghost/ghostChat/commits/master" title="Code">💻</a></td>
+    </tr>
+</table>
