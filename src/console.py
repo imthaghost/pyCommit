@@ -53,6 +53,7 @@ class DateValidator(Validator):
 print(banner + '\n')
 print('Hi, welcome to pyCommit' + '\n')
 
+# create questions to ask user
 questions = [
     {
         'type': 'list',
