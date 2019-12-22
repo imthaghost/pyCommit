@@ -16,7 +16,7 @@
   
 </p>
 
-> Go away on a trip or simply just a noob but your commit wall is life? Try out pyCommit it does absolutely nothing except provides the user a console to specify what days the daemon process should create commits for you. This will allow you to have a green wall year round!
+> Going away on a trip or simply just a noob but your commit wall is life? Try out pyCommit it does absolutely nothing except provides the user a console to specify what days the daemon process should create commits for you. This will allow you to have a green wall year round!
 
 ### 💻 Prerequisites
 
