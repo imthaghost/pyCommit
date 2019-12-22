@@ -205,7 +205,7 @@ def main():
     banner_logo()
     welcome()
     # generate a static key to use for grabbing username credential
-    key = 'pycommit'
+    key = 'wall-e'
     answers = prompt(questions, style=style)
     # pprint(answers)
     # if the user wants to run the daemon locally then we use keyring process
