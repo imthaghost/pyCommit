@@ -44,6 +44,9 @@ class pyCommit(object):
     def remote(self):
         pass
 
+    def run(self):
+        pass
+
     def _repo_check(self, api):
         found = None
         for repo in api.get_user().get_repos():
