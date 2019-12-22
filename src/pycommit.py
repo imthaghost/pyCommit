@@ -13,7 +13,6 @@ import os
 
 # local Python Modules
 from creds import *
-from art import *
 
 # external Python Modules
 try:
@@ -28,6 +27,7 @@ class pyCommit(object):
         self._username = _get_username()
         self._password = _get_password()
         self._repo_name = 'commit'
+        self._api = None
 
     def instance(self, api):
         pass
@@ -46,6 +46,15 @@ class pyCommit(object):
 
     def run(self):
         pass
+
+    def _set_api(self api):
+        self._api = api
+
+    def update(self, api, repository_name):
+        repo = api
+        contents = repo.get_contents("test.txt", ref="test")
+        repo.update_file(contents.path, "more tests",
+                         "more tests", contents.sha, branch="test")
 
     def _repo_check(self, api):
         found = None

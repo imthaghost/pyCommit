@@ -15,7 +15,10 @@ from art import git as banner
 from PyInquirer import style_from_dict, Token, prompt
 from PyInquirer import Validator, ValidationError
 import colorama
+from colorama import Fore, Back, Style
 
+# initilize
+colorama.init()
 # promt styling
 style = style_from_dict({
     Token.QuestionMark: '#E91E63 bold',
@@ -50,9 +53,10 @@ class DateValidator(Validator):
                 cursor_position=len(document.text))  # Move cursor to end
 
 
+print(Fore.LIGHTCYAN_EX)
 print(banner + '\n')
 print('Hi, welcome to pyCommit' + '\n')
-
+print(Style.RESET_ALL)
 # create questions to ask user
 questions = [
     {
@@ -61,6 +65,28 @@ questions = [
         'message': 'Where should this be executed',
         'choices': ['Local Machine', 'Web-Server'],
         'filter': lambda val: val.lower()
+    },
+    {
+        'type': 'list',
+        'name': 'repo_type',
+        'message': 'Existing or New Repository',
+        'choices': ['Existing', 'New'],
+        'filter': lambda val: val.lower()
+    },
+    {
+        'type': 'list',
+        'name': 'repo_status',
+        'message': 'Private or public',
+        'choices': ['Private', 'Public'],
+        'filter': lambda val: val.lower(),
+        'when': lambda answers: answers['repo_type'] == 'new'
+    },
+    {
+        'type': 'input',
+        'name': 'repo_name',
+        'message': 'What is the repos name',
+        'filter': lambda val: val.lower(),
+        'when': lambda answers: answers['repo_type'] == 'existing'
     },
     {
         'type': 'input',
@@ -105,6 +131,12 @@ questions = [
         'when': lambda answers: answers['comments'] != 'Nope, all good!'
     }
 ]
+
+
+def py_console():
+    pass
+
+
 if __name__ == "__main__":
     answers = prompt(questions, style=style)
-    pprint(answers)
+    # pprint(answers)

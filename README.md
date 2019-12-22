@@ -1,5 +1,5 @@
 <h1 align="center">Welcome to pyCommit</h1>
-<img align="center" src="docs/octocat.png" title="Icon"></a>
+<img align="center" src="docs/media/octocat.png" title="Icon"></a>
 <p>
     <a href="https://www.npmjs.com/package/readme-md-generator">
     <img alt="downloads" src="https://img.shields.io/github/contributors/imthaghost/ghostChat?color=green" target="_blank" />
@@ -24,7 +24,7 @@ What things you need to run the software
 
 ```bash
 - Python 3.4+
-- Pipenv
+- pipenv
 - Brew
 ```
 
@@ -35,7 +35,20 @@ What things you need to run the software
 ```bash
 # clone the repo
 git clone https://github.com/imthaghost/pycommit
+# change directories
+cd pyCommit
+# install necessary modules with virtual enviornment tool pipenv
+pipenv install
 ```
+
+![install](/docs/media/install.png)
+
+```bash
+# activate the virtual enviornment
+pipenv shell
+```
+
+![activate](/docs/media/activate.png)
 
 ## :white_check_mark: Todo
 
