@@ -21,12 +21,18 @@ except ImportError as error:
     keyring_import = False
 
 
-def _set_username(option=None):
-    pass
+def _set_username(git, key, option=keyring_import):
+    if option:
+        keyring.set_password('git_username', key, git)
+    else:
+        pass
 
 
-def _set_password(option=None):
-    pass
+def _set_password(git, pw, option=keyring_import):
+    if option:
+        keyring.set_keyring('git_password', git, pw)
+    else:
+        pass
 
 
 def _get_username():
