@@ -12,6 +12,8 @@ pygithub = "*"
 keyring = "*"
 requests = "*"
 flask = "*"
+pyinquirer = "*"
+colorama = "*"
 
 [requires]
 python_version = "3.7"
