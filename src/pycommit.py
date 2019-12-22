@@ -12,7 +12,6 @@ import sys
 import os
 
 # local Python Modules
-from creds import *
 
 # external Python Modules
 try:
@@ -23,11 +22,11 @@ except ImportError as error:
 
 
 class pyCommit(object):
-    def __init__(self):
-        self._username = _get_username()
-        self._password = _get_password()
+    def __init__(self, username, password):
+        self._username = username
+        self._password = password
         self._repo_name = 'commit'
-        self._api = None
+        self._api = Github(self._username, self._password)
 
     def instance(self, api):
         pass
@@ -46,9 +45,6 @@ class pyCommit(object):
 
     def run(self):
         pass
-
-    def _set_api(self api):
-        self._api = api
 
     def update(self, api, repository_name):
         repo = api
