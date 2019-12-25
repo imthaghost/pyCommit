@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to wall-e</h1>
+<h1 align="center">Welcome to pyCommit</h1>
 <img align="center" src="docs/media/octocat.png" title="Icon"></a>
 <p>
     <a href="https://www.npmjs.com/package/readme-md-generator">
@@ -16,7 +16,7 @@
   
 </p>
 
-> Going away on a trip or simply just a noob but your commit wall is life? Try out wall-e it does absolutely nothing except provides the user a console to specify what days the daemon process should create commits for you. This will allow you to have a green wall year round!
+> Going away on a trip or simply just a noob but your commit wall is life? Try out pyCommit it does absolutely nothing except provides the user a console to specify what days the daemon process should create commits for you. This will allow you to have a green wall year round!
 
 ### 💻 Prerequisites
 
