@@ -31,20 +31,11 @@ import emoji
 # initilize colorama
 colorama.init()
 
-# promt styling
-style = style_from_dict({
-    Token.QuestionMark: '#E91E63 bold',
-    Token.Selected: '#673AB7 bold',
-    Token.Instruction: '',  # default
-    Token.Answer: '#2196f3 bold',
-    Token.Question: '',
-})
-
 
 def banner_logo():
     # banner colors
-    banner_colors = [Fore.LIGHTCYAN_EX, Fore.LIGHTGREEN_EX, Fore.LIGHTMAGENTA_EX, Fore.LIGHTYELLOW_EX,
-                     Fore.MAGENTA, Fore.LIGHTBLUE_EX, Fore.LIGHTRED_EX, Fore.BLUE, Fore.CYAN, Fore.RED]
+    banner_colors = [Fore.LIGHTCYAN_EX, Fore.LIGHTGREEN_EX,
+                     Fore.LIGHTBLUE_EX, Fore.LIGHTRED_EX, Fore.BLUE, Fore.CYAN]
     # banner
     banner = Style.BRIGHT + random.choice(banner_colors) + git + Fore.RESET
     print(banner)
@@ -55,7 +46,7 @@ def welcome():
     welcome_emoji_list = ['\U0001F918',
                           '\U0001F44B', '\U0001F5A4', '\U0001F47D', '\U0001F642', '\U0001F601', '\U0001F603', '\U0001F435', '\U0001F40D',
                           '\U0001F996']
-    print('Hi, welcome to pyCommit' +
+    print('       Hi, welcome to pyCommit' +
           emoji.emojize(random.choice(welcome_emoji_list)) + '\n')
 
 
@@ -92,82 +83,6 @@ class CredsValidator(Validator):
         ok = successful_login()
 
 
-# create questions to ask user
-questions = [
-    {
-        'type': 'list',
-        'name': 'server',
-        'message': 'Where should this be executed',
-        'choices': ['Local Machine', 'Web-Server'],
-        'filter': lambda val: val.lower()
-    },
-    {
-        'type': 'list',
-        'name': 'repo_type',
-        'message': 'Existing or New Repository',
-        'choices': ['Existing', 'New'],
-        'filter': lambda val: val.lower()
-    },
-    {
-        'type': 'list',
-        'name': 'repo_status',
-        'message': 'Private or public',
-        'choices': ['Private', 'Public'],
-        'filter': lambda val: val.lower(),
-        'when': lambda answers: answers['repo_type'] == 'new'
-    },
-    {
-        'type': 'input',
-        'name': 'repo_name',
-        'message': 'What is the repos name',
-        'filter': lambda val: val.lower(),
-        'when': lambda answers: answers['repo_type'] == 'existing'
-    },
-    {
-        'type': 'input',
-        'name': 'start',
-        'message': 'Start Date - format(mm/dd/yyyy)',
-        'validate': DateValidator
-    },
-    {
-        'type': 'input',
-        'name': 'end',
-        'message': 'End Date - format(mm/dd/yyyy)',
-        'validate': DateValidator
-    },
-    {
-        'type': 'input',
-        'name': 'username',
-        'message': 'Whats your github username'
-    },
-    {
-        'type': 'password',
-        'name': 'password',
-        'message': 'Whats your github password'
-    },
-
-    {
-        'type': 'input',
-        'name': 'quantity',
-        'message': 'How many commits do you want?',
-        'validate': NumberValidator,
-        'filter': lambda val: int(val)
-    },
-    {
-        'type': 'input',
-        'name': 'comments',
-        'message': 'Any comments on your experience?',
-        'default': 'Nope, all good!'
-    },
-    {
-        'type': 'list',
-        'name': 'ending',
-        'message': 'Thanks for leaving a comment!',
-        'when': lambda answers: answers['comments'] != 'Nope, all good!'
-    }
-]
-
-
 def login(key, username, password):
     reset = [
         {
@@ -181,7 +96,7 @@ def login(key, username, password):
             'message': 'Whats your github password'
         }
     ]
-    style = style_from_dict({
+    reset_style = style_from_dict({
         Token.QuestionMark: '#E91E63 bold',
         Token.Selected: '#673AB7 bold',
         Token.Instruction: '',  # default
@@ -191,43 +106,118 @@ def login(key, username, password):
 
     if valid_credentials(username, password):
         print('\n')
-        print('Daemon created!')
-        print('PID: 81861')
+        # print success message
+        print(Fore.GREEN + 'Successful Login' + Fore.RESET)
+        print('\n')
+        # return True
         return True
     else:
-        print('Invalid credentials')
-        new_credentials = prompt(reset, style=style)
+        # print failed message
+        print(Fore.RED + 'Invalid credentials' + Fore.RESET)
+        # ask the user for new credentials
+        new_credentials = prompt(reset, style=reset_style)
+        # set the new credentials
         _create_creds(
             key, new_credentials['username'], new_credentials['password'])
-        login(key, new_credentials['username'], new_credentials['password'])
+        # ask for home dashboard
+        home()
+
+
+def home():
+    # key will be used to get github username
+    key = 'wall-e'
+    # try logging in otehrwise we will get the users credentials
+    login(key, _get_username(key), _get_password(_get_username(key)))
+
+
+def commit_prompt():
+    # prompt styling
+    commit_style = style_from_dict({
+        Token.QuestionMark: '#E91E63 bold',
+        Token.Selected: '#673AB7 bold',
+        Token.Instruction: '',  # default
+        Token.Answer: '#2196f3 bold',
+        Token.Question: '',
+    })
+    # create questions to ask user
+    questions = [
+        {
+            'type': 'list',
+            'name': 'server',
+            'message': 'Where should this be executed',
+            'choices': ['Local Machine', 'Web-Server'],
+            'filter': lambda val: val.lower()
+        },
+        {
+            'type': 'list',
+            'name': 'repo_type',
+            'message': 'Existing or New Repository',
+            'choices': ['Existing', 'New'],
+            'filter': lambda val: val.lower()
+        },
+        {
+            'type': 'list',
+            'name': 'repo_status',
+            'message': 'Private or public',
+            'choices': ['Private', 'Public'],
+            'filter': lambda val: val.lower(),
+            'when': lambda answers: answers['repo_type'] == 'new'
+        },
+        {
+            'type': 'input',
+            'name': 'repo_name',
+            'message': 'What is the repos name',
+            'filter': lambda val: val.lower(),
+            'when': lambda answers: answers['repo_type'] == 'existing'
+        },
+        # {
+        #     'type': 'input',
+        #     'name': 'start',
+        #     'message': 'Start Date - format(mm/dd/yyyy)',
+        #     'validate': DateValidator
+        # },
+        # {
+        #     'type': 'input',
+        #     'name': 'end',
+        #     'message': 'End Date - format(mm/dd/yyyy)',
+        #     'validate': DateValidator
+        # },
+        {
+            'type': 'input',
+            'name': 'quantity',
+            'message': 'How many commits do you want?',
+            'validate': NumberValidator,
+            'filter': lambda val: int(val)
+        },
+        {
+            'type': 'input',
+            'name': 'comments',
+            'message': 'Any comments on your experience?',
+            'default': 'Nope, all good!'
+        },
+        {
+            'type': 'list',
+            'name': 'ending',
+            'message': 'Thanks for leaving a comment!',
+            'when': lambda answers: answers['comments'] != 'Nope, all good!'
+        }
+    ]
+    answers = prompt(questions, style=commit_style)
+    pprint(answers)
+    # if the user wants to run the daemon locally then we use keyring process
+    if 'local' in answers['server']:
+        print('\n')
+        print('creating daemon..')
+
+    else:
+        print('Server not up yet .-.')
+
 
 def main():
     banner_logo()
     welcome()
-    # generate a static key to use for grabbing username credential
-    key = 'wall-e'
-    answers = prompt(questions, style=style)
-    # pprint(answers)
-    # if the user wants to run the daemon locally then we use keyring process
-    if 'local' in answers['server']:
-        # check to see if a credentials exist in the keychain already
-        if _check_username(key) and _check_password(_get_username(key)):
-            username = _get_username(key)
-            password = _get_password(username)
-        else:
-            # otherwise we create the credentials
-            # grab the users username from answers
-            username = answers['username']
-            password = answers['password']
-            # create user credentials
-            _create_creds(key, username, password)
-        # check to see if the credentials work otherwise prompt user and reset them
-        login(key, username, password)
-        # after login
-
-
-    else:
-        print('Server not up yet .-.')
+    home()
+    commit_prompt()
 
 
 if __name__ == "__main__":
