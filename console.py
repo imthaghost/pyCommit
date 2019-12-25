@@ -125,7 +125,7 @@ def login(key, username, password):
 
 def home():
     # key will be used to get github username
-    key = 'wall-e'
+    key = 'pyCommit'
     # try logging in otehrwise we will get the users credentials
     login(key, _get_username(key), _get_password(_get_username(key)))
 
