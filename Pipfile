@@ -16,6 +16,7 @@ pyinquirer = "*"
 colorama = "*"
 emoji = "*"
 python-daemon = "*"
+tqdm = "*"
 
 [requires]
 python_version = "3.7"

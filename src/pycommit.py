@@ -23,10 +23,9 @@ except ImportError as error:
 
 class pyCommit(object):
     def __init__(self, username, password):
-        self._username = username
-        self._password = password
-        self._repo_name = 'commit'
-        self._api = Github(self._username, self._password)
+        self._default_repo = 'commit'
+        self._new_repo = None
+        self._api = Github(username, password)
 
     def update(self, repository_name, num):
         repo = self._api
@@ -34,17 +33,21 @@ class pyCommit(object):
         repo.update_file(contents.path, "more tests",
                          "more tests", contents.sha, branch="test")
 
-    def _repo_check(self):
+    def _repo_check(self, repo_name=None):
         found = None
         for repo in self._api.get_user().get_repos():
             # repos.append(str(repo.name))
-            if str(repo.name) == 'commit':
+            if str(repo.name) == repo_name:
                 found = True
 
                 break
             else:
                 found = False
         return found
+
+    def _create_repo(self, new_name, status, description='created with pycommit'):
+        self._api.get_user().create_repo(
+            new_name, description=description, private=status)
 
     def _execution_timer(self, function):
         x = datetime.today()

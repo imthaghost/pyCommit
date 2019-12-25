@@ -13,10 +13,10 @@ import getpass
 try:
     from github import Github
     import keyring
-    
+
 except ImportError as error:
     sys.stdout.write(str(error))
-   
+
 
 def _set_username(key, git):
     keyring.set_password('git_username', key, git)
