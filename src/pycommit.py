@@ -28,33 +28,15 @@ class pyCommit(object):
         self._repo_name = 'commit'
         self._api = Github(self._username, self._password)
 
-    def instance(self, api):
-        pass
-
-    def commit(self):
-        pass
-
-    def status(self):
-        pass
-
-    def push(self):
-        pass
-
-    def remote(self):
-        pass
-
-    def run(self):
-        pass
-
-    def update(self, api, repository_name):
-        repo = api
+    def update(self, repository_name, num):
+        repo = self._api
         contents = repo.get_contents("test.txt", ref="test")
         repo.update_file(contents.path, "more tests",
                          "more tests", contents.sha, branch="test")
 
-    def _repo_check(self, api):
+    def _repo_check(self):
         found = None
-        for repo in api.get_user().get_repos():
+        for repo in self._api.get_user().get_repos():
             # repos.append(str(repo.name))
             if str(repo.name) == 'commit':
                 found = True

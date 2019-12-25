@@ -11,15 +11,12 @@ import getpass
 
 # external Python Modules
 try:
+    from github import Github
     import keyring
-    # imported keyring succesfully
-    keyring_import = True
+    
 except ImportError as error:
-    # log error
     sys.stdout.write(str(error))
-    # we set keyring import to False
-    keyring_import = False
-
+   
 
 def _set_username(key, git):
     keyring.set_password('git_username', key, git)

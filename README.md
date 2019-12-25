@@ -1,5 +1,5 @@
 <h1 align="center">Welcome to wall-e</h1>
-<img align="center" src="docs/media/octocat.jpg" title="Icon"></a>
+<img align="center" src="docs/media/octocat.png" title="Icon"></a>
 <p>
     <a href="https://www.npmjs.com/package/readme-md-generator">
     <img alt="downloads" src="https://img.shields.io/github/contributors/imthaghost/ghostChat?color=green" target="_blank" />

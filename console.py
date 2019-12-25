@@ -188,6 +188,7 @@ def login(key, username, password):
         Token.Answer: '#2196f3 bold',
         Token.Question: '',
     })
+
     if valid_credentials(username, password):
         print('\n')
         print('Daemon created!')
@@ -199,7 +200,6 @@ def login(key, username, password):
         _create_creds(
             key, new_credentials['username'], new_credentials['password'])
         login(key, new_credentials['username'], new_credentials['password'])
-
 
 def main():
     banner_logo()
@@ -223,6 +223,8 @@ def main():
             _create_creds(key, username, password)
         # check to see if the credentials work otherwise prompt user and reset them
         login(key, username, password)
+        # after login
+
 
     else:
         print('Server not up yet .-.')
