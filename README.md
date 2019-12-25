@@ -18,6 +18,8 @@
 
 > Going away on a trip or simply just a noob but your commit wall is life? Try out pyCommit it does absolutely nothing except provides the user a console to specify what days the daemon process should create commits for you. This will allow you to have a green wall year round!
 
+![running](/docs/media/commmit.gif)
+
 ### 💻 Prerequisites
 
 What things you need to run the software
@@ -36,7 +38,7 @@ What things you need to run the software
 # clone the repo
 git clone https://github.com/imthaghost/wall-e
 # change directories
-cd wall-e
+cd pycommit
 # install necessary modules with virtual enviornment tool pipenv
 pipenv install
 ```
@@ -49,6 +51,13 @@ pipenv shell
 ```
 
 ![activate](/docs/media/activate.png)
+
+```bash
+# run the console
+python3 console.py
+```
+
+![console](/docs/media/console.png)
 
 ## :white_check_mark: Todo
 

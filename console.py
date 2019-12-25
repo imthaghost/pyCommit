@@ -1,4 +1,6 @@
 """console.py
+# todo: documentation
+# todo: daemonize process
 """
 __maintainer__ = 'Gary Frederick'
 __license__ = 'MIT'
@@ -214,6 +216,7 @@ def dashboard(answers):
     # todo: make the dashboard function more modular
     # todo: make file creation function in pycommit class
     # todo: move repeated file-commit code into function
+    # todo: add documentation and comments
     # if the user wants to run the daemon locally then we use keyring process
     if 'local' in answers['server']:
         # instantiate the github user object
@@ -242,9 +245,10 @@ def dashboard(answers):
                 repo = p._api.get_user().get_repo(new_repo)
                 repo.create_file('test.txt', 'init', 'initial')
                 commits = answers['quantity']
+                # todo: style progress bar better
                 for m in tqdm(range(commits), mininterval=0.01, ncols=60, smoothing=0.3):
                     # if file exits already update the file else create a new one
-                    repo.get_contents("test.txt"):
+                    repo.get_contents("test.txt")
                     content = repo.get_contents("test.txt")
                     # for m in range(commits):
                     body = 'pycommit commit: ' + str(m)
@@ -276,6 +280,7 @@ def dashboard(answers):
             else:
                 print('doesnt exist')
     else:
+        # todo: create server insance
         print('Server not up yet .-.')
 
 
