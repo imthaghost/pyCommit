@@ -113,8 +113,10 @@ def login(key, username, password):
         # return True
         return True
     else:
+        print('\n')
         # print failed message
         print(Fore.RED + 'Invalid credentials' + Fore.RESET)
+        print('\n')
         # ask the user for new credentials
         new_credentials = prompt(reset, style=reset_style)
         # set the new credentials
