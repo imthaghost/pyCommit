@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """creds.py
 """
 __maintainer__ = 'Gary Frederick'
@@ -10,12 +12,8 @@ import sys
 import getpass
 
 # external Python Modules
-try:
-    from github import Github
-    import keyring
-
-except ImportError as error:
-    sys.stdout.write(str(error))
+from github import Github
+import keyring
 
 
 def _set_username(key, git):

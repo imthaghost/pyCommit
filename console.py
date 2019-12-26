@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """console.py
 # todo: documentation
 # todo: daemonize process
@@ -9,7 +11,7 @@ __version__ = '1.0.0'
 # built-in Python Modules
 from pprint import pprint
 import random
-import regex
+import re
 
 # local Python Modules
 from src.creds import _create_creds, _get_password, _get_username, _check_password, _check_username, valid_credentials
@@ -17,10 +19,10 @@ from src.pycommit import pyCommit
 from src.art import git
 
 # local Python Docs
-from src.creds import __doc__ as credential_doc
-from src.mon import __doc__ as daemon_doc
-from src.death import __doc__ as death_doc
-from src.pycommit import __doc__ as pycommit_doc
+# from src.creds import __doc__ as credential_doc
+# from src.mon import __doc__ as daemon_doc
+# from src.death import __doc__ as death_doc
+# from src.pycommit import __doc__ as pycommit_doc
 
 # external Python Modules
 from PyInquirer import style_from_dict, Token, prompt
@@ -53,7 +55,7 @@ class DateValidator(Validator):
     """"""
 
     def validate(self, document):
-        ok = regex.match(
+        ok = re.match(
             '^(1[0-2]|0?[1-9])/(3[01]|[12][0-9]|0?[1-9])/(?:[0-9]{2})?[0-9]{2}$', document.text)
         if not ok:
             raise ValidationError(
